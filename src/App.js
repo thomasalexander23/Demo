@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { StrictMode } from 'react';
+import Form from './copmonents/Calculator';
+import Top from './Top';
+import { Route,Routes } from 'react-router-dom';
+import Thomas from './Thomas';
+import List from './Lists';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(){
+
+  return(
+    <StrictMode>
+        <Top/>
+        <Routes>
+          <Route path='/' index/>
+          <Route path='/Thomas' element={<Thomas />}/>
+          <Route path='/Form' element={<Form />}/>
+          <Route path='/Lists' element={<List />}/>
+        </Routes>
+   
+    </StrictMode>
+  )
 }
-
-export default App;
