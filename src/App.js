@@ -10,6 +10,9 @@ export default function App(){
 
   return(
     <StrictMode>
+       <div>
+        <h1 style={{textAlign:'center', margin:"20px auto"}}>Thomas alexander</h1>
+       </div>
         <Top/>
         <Routes>
           <Route path='/' index/>
