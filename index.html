@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thomas ❤️ Redina</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Arial',sans-serif;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    max-width:600px;
+    margin:80px auto;
+    background:rgba(255,255,255,0.9);
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#e91e63;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    margin:10px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#e91e63;
+    color:white;
+}
+
+.no{
+    background:#ccc;
+}
+
+input,select{
+    padding:10px;
+    font-size:16px;
+    margin:10px;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+#step2,#step3,#final{
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+<h1>Thomas ❤️ Redina</h1>
+
+<div id="step1">
+    <h2>Dear Redina ❤️</h2>
+    <p>You make every day brighter and every moment special.</p>
+    <p>Would you like to go on a date with me? 🌹</p>
+
+    <button class="yes" onclick="yesAnswer()">Yes ❤️</button>
+    <button class="no" onclick="noAnswer()">No 😢</button>
+</div>
+
+<div id="step2">
+    <h2>Yay! 😍</h2>
+    <p>When would you like our date?</p>
+    <input type="date" id="date">
+    <br>
+    <button class="yes" onclick="nextStep()">Continue ❤️</button>
+</div>
+
+<div id="step3">
+    <h2>Choose our special place ❤️</h2>
+
+    <select id="place">
+        <option>Romantic Restaurant 🍽️</option>
+        <option>Coffee Date ☕</option>
+        <option>Movie Night 🎬</option>
+        <option>Park Walk 🌳</option>
+        <option>Anywhere With You ❤️</option>
+    </select>
+
+    <br>
+    <button class="yes" onclick="finish()">Confirm ❤️</button>
+</div>
+
+<div id="final">
+    <h2>❤️ It's a Date! ❤️</h2>
+    <p id="summary"></p>
+    <h3>Thomas can't wait to see you, Redina! 🌹</h3>
+</div>
+
+</div>
+
+<script>
+
+function yesAnswer(){
+    document.getElementById("step1").style.display="none";
+    document.getElementById("step2").style.display="block";
+}
+
+function noAnswer(){
+    alert("I'll keep trying to win your heart ❤️");
+}
+
+function nextStep(){
+    document.getElementById("step2").style.display="none";
+    document.getElementById("step3").style.display="block";
+}
+
+function finish(){
+    let date=document.getElementById("date").value;
+    let place=document.getElementById("place").value;
+
+    document.getElementById("step3").style.display="none";
+    document.getElementById("final").style.display="block";
+
+    document.getElementById("summary").innerHTML=
+    `Our date is on <b>${date}</b><br><br>
+     Location: <b>${place}</b>`;
+}
+
+for(let i=0;i<30;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
